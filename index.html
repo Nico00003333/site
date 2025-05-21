@@ -29,10 +29,11 @@
       cursor: pointer;
       border-radius: 8px;
     }
-    iframe {
+    video {
       margin-top: 20px;
-      width: 560px;
-      height: 315px;
+      max-width: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
     }
   </style>
 </head>
@@ -49,7 +50,11 @@
   <div id="rickroll" class="hidden">
     <p>Merci pour votre achat ! Voici votre image débloquée :</p>
     <img src="https://via.placeholder.com/600x400.png?text=Voici+ton+image+!" style="max-width: 80%;" />
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    
+    <video autoplay muted loop controls>
+      <source src="https://ia800905.us.archive.org/35/items/NeverGonnaGiveYouUpVideo_201908/NeverGonnaGiveYouUp.mp4" type="video/mp4">
+      Ton navigateur ne supporte pas les vidéos HTML5.
+    </video>
   </div>
 
   <script>
