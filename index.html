@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Image exclusive</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin: 0;
+      padding: 50px;
+    }
+    .blurred {
+      filter: blur(10px);
+      transition: filter 0.5s ease;
+      max-width: 80%;
+    }
+    .hidden {
+      display: none;
+    }
+    .btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin-top: 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    iframe {
+      margin-top: 20px;
+      width: 560px;
+      height: 315px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Image exclusive premium 🔒</h1>
+  <p>Cette image est réservée aux membres premium. Débloquez-la pour seulement 10€.</p>
+
+  <img src="https://via.placeholder.com/600x400.png?text=Image+exclusive" class="blurred" id="image" />
+
+  <br/>
+  <button class="btn" onclick="unlockImage()">Débloquer pour 10€</button>
+
+  <div id="rickroll" class="hidden">
+    <p>Merci pour votre achat ! Voici votre image débloquée :</p>
+    <img src="https://via.placeholder.com/600x400.png?text=Voici+ton+image+!" style="max-width: 80%;" />
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    function unlockImage() {
+      document.querySelector("#image").classList.add("hidden");
+      document.querySelector("button").classList.add("hidden");
+      document.querySelector("#rickroll").classList.remove("hidden");
+    }
+  </script>
+
+</body>
+</html>
