@@ -1,4 +1,4 @@
-f<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -12,9 +12,13 @@ f<!DOCTYPE html>
       padding: 50px;
     }
     .blurred {
-      filter: blur(10px);
+      filter: blur(25px);
+      max-width: 300px;
       transition: filter 0.5s ease;
-      max-width: 80%;
+      cursor: not-allowed;
+      user-select: none;
+      margin: 0 auto;
+      display: block;
     }
     .hidden {
       display: none;
@@ -28,12 +32,23 @@ f<!DOCTYPE html>
       font-size: 18px;
       cursor: pointer;
       border-radius: 8px;
+      user-select: none;
+    }
+    #unblurredImage {
+      max-width: 80%;
+      margin: 20px auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
     video {
       margin-top: 20px;
       max-width: 80%;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
@@ -42,15 +57,14 @@ f<!DOCTYPE html>
   <h1>Image exclusive premium 🔒</h1>
   <p>Cette image est réservée aux membres premium. Débloquez-la pour seulement 10€.</p>
 
-  <img src="https://litter.catbox.moe/3p1f72.png" class="blurred" id="image" />
+  <img src="https://litter.catbox.moe/3p1f72.png" alt="Image floutée" class="blurred" id="blurredImage" />
 
-  <br/>
   <button class="btn" onclick="unlockImage()">Débloquer pour 10€</button>
 
-  <div id="rickroll" class="hidden">
+  <div id="contentAfterUnlock" class="hidden">
     <p>Merci pour votre achat ! Voici votre image débloquée :</p>
-    <img src="https://litter.catbox.moe/3p1f72.png" style="max-width: 80%;" />
-    
+    <img src="https://litter.catbox.moe/3p1f72.png" alt="Image débloquée" id="unblurredImage" />
+
     <video autoplay muted loop controls>
       <source src="https://ia800905.us.archive.org/35/items/NeverGonnaGiveYouUpVideo_201908/NeverGonnaGiveYouUp.mp4" type="video/mp4">
       Ton navigateur ne supporte pas les vidéos HTML5.
@@ -59,9 +73,9 @@ f<!DOCTYPE html>
 
   <script>
     function unlockImage() {
-      document.querySelector("#image").classList.add("hidden");
-      document.querySelector("button").classList.add("hidden");
-      document.querySelector("#rickroll").classList.remove("hidden");
+      document.getElementById('blurredImage').classList.add('hidden');
+      document.querySelector('.btn').classList.add('hidden');
+      document.getElementById('contentAfterUnlock').classList.remove('hidden');
     }
   </script>
 
