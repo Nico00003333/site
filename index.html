@@ -47,18 +47,15 @@
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
-    video {
+    iframe {
       margin-top: 20px;
       max-width: 80%;
+      height: 360px;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
       display: block;
       margin-left: auto;
       margin-right: auto;
-    }
-    #soundBtn {
-      margin-top: 15px;
-      display: inline-block;
     }
   </style>
 </head>
@@ -78,48 +75,37 @@
   <button class="btn" id="unlockBtn">Débloquer pour 10€</button>
 
   <div id="contentAfterUnlock" class="hidden">
-    <p>Merci pour votre achat ! Voici votre image débloquée :</p>
+    <p>Merci pour votre achat ! Profitez du rickroll :</p>
+
+    <iframe 
+      src="https://archive.org/embed/20070515-rick-roll-d-o-hg-5-sjyrha-0?autoplay=1&loop=1" 
+      width="640" 
+      height="360" 
+      frameborder="0" 
+      webkitallowfullscreen="true" 
+      mozallowfullscreen="true" 
+      allowfullscreen 
+      allow="autoplay"
+      id="rickrollIframe"
+    ></iframe>
+
+    <p style="margin-top: 30px;">Voici votre image débloquée :</p>
     <img
       src="https://litter.catbox.moe/3p1f72.png"
       alt="Image débloquée"
       id="unblurredImage"
     />
-
-    <video
-      id="rickVideo"
-      autoplay
-      muted
-      loop
-      controls
-      playsinline
-    >
-      <source
-        src="https://ia800905.us.archive.org/35/items/NeverGonnaGiveYouUpVideo_201908/NeverGonnaGiveYouUp.mp4"
-        type="video/mp4"
-      />
-      Ton navigateur ne supporte pas la vidéo HTML5.
-    </video>
-
-    <button class="btn" id="soundBtn">Activer le son</button>
   </div>
 
   <script>
     const unlockBtn = document.getElementById('unlockBtn');
     const blurredImage = document.getElementById('blurredImage');
     const contentAfterUnlock = document.getElementById('contentAfterUnlock');
-    const soundBtn = document.getElementById('soundBtn');
-    const rickVideo = document.getElementById('rickVideo');
 
     unlockBtn.addEventListener('click', () => {
       blurredImage.classList.add('hidden');
       unlockBtn.classList.add('hidden');
       contentAfterUnlock.classList.remove('hidden');
-    });
-
-    soundBtn.addEventListener('click', () => {
-      rickVideo.muted = false; // active le son
-      rickVideo.play();        // relance la vidéo avec son
-      soundBtn.style.display = 'none'; // cache le bouton
     });
   </script>
 
